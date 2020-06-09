@@ -1,25 +1,13 @@
-setTimeout(() => {
-	console.log(' Two seconds are up.')
-}, 2000)
-
-
-const geoCode = (address, callback) => {
-	const data = {
-		latidude: 0,
-		logitude: 1
-	}
-};
-
-geoCode('philadephia');
-
-
-
-const add = (a, b, callback) => {
+const doWorkCallBack = (callback) => {
 	setTimeout(() => {
-		callback(a + b);
+		callback('THis is my error', undefined)
 	}, 2000)
-};
+}
 
-add(1, 4, (sum) => {
-	console.log(sum) // Should print: 5
-});
+doWorkCallBack((error, result) => {
+	if (error) {
+		return console.log(error)
+	} else {
+		console.log(result)
+	}
+})
